@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --text-color: #4A90E2;
+}
+
+@theme {
+  --color-primary: #4A90E2;
+  --color-secondary: #1E3A8A;
+  --color-accent: #74C0FC;
+  --color-background: #F0F9FF;
+  --color-text-primary: #0A2540;
+  --color-text-secondary: #1E40AF;
+  --color-border: #A0C4FF;
+  --color-footer: rgb(230, 245, 255);
+  --color-nav: rgb(230, 245, 255);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+/* For WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* or a light background if you prefer */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* change color as needed */
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+.hero{
+  background-image: url("../../public/images/main-bg.jpg");
+  background-size: 1800px;
+  mask-image: linear-gradient(to top,transparent ,transparent 2%,blue 10%,blue);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.wrapper {
+  display: grid;
+  place-content: center;
+  background-color: var(--background-color);
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.5rem, 1rem + 18vw, 15rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.wrapper > div {
+  grid-area: 1/1/-1/-1;
+}
+.top {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+}
+.bottom {
+  clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+  color: transparent;
+  background: -webkit-linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background: linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transform: translateX(-0.02em);
+}
+
+.masked-text {
+  font-weight: bold;
+  color: transparent;
+  background-image: url('https://images.unsplash.com/photo-1732535725600-f805d8b33c9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+  background-size: 200%; /* Enlarged for smooth animation */
+  background-position: 0 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animate-background 5s infinite alternate linear;
+}
+
+@keyframes animate-background {
+  0% {
+      background-position: 0 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}
+
+
