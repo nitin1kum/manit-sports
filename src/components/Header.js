@@ -24,7 +24,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      setShow(currentScrollPos < 72 ||  currentScrollPos < scrollPos);
+      setShow(currentScrollPos < 72 || currentScrollPos < scrollPos);
       scrollPos = currentScrollPos;
     };
 
@@ -104,8 +104,6 @@ const Header = () => {
           className="relative flex items-center justify-center lg:hidden"
           onClick={(e) => {
             setShowNav(!showNav);
-            document.body.style.overflowY = !showNav ? "hidden" : "auto";
-            document.body.style.height = !showNav ? "100vh" : "auto";
           }}
         >
           {!showNav ? (
@@ -123,22 +121,32 @@ const Header = () => {
       >
         <div className="nav-headers scroll overflow-y-scroll">
           <ul className="p-3 flex flex-col gap-4 pt-20 text-white ">
-            <li>
+            <li onClick={(e) => {
+              setShowNav(!showNav);
+            }}>
               <Link className="px-2 py-3 bg-accent/50 text-primary flex justify-between items-center w-full" href={"schedule"}>Schedule <IoChevronForwardOutline /></Link>
             </li>
-            <li>
+            <li onClick={(e) => {
+              setShowNav(!showNav);
+            }}>
               <Link className="px-2 py-3 bg-accent/50 text-primary flex justify-between items-center w-full" href={"results"}>Results <IoChevronForwardOutline /></Link>
             </li>
-            <li>
+            <li onClick={(e) => {
+              setShowNav(!showNav);
+            }}>
               <Link className="px-2 py-3 bg-accent/50 text-primary flex justify-between items-center w-full" href={"gallery"}>Gallery <IoChevronForwardOutline /></Link>
             </li>
-            <li>
+            <li onClick={(e) => {
+              setShowNav(!showNav);
+            }}>
               <Link className="px-2 py-3 bg-accent/50 text-primary flex justify-between items-center w-full" href={"about"}>About <IoChevronForwardOutline /></Link>
             </li>
           </ul>
         </div>
 
-        <Link href={"/contact"} className="bg-nav w-full z-50 p-4 mb-4 text-primary text-center border-2 border-border">
+        <Link onClick={(e) => {
+          setShowNav(!showNav);
+        }} href={"/contact"} className="bg-nav w-full z-50 p-4 mb-4 text-primary text-center border-2 border-border">
           Contact Us
         </Link>
       </div>
